@@ -18,15 +18,15 @@ def while_sum_positive(nums):
     i = 0
     total = 0
     # TODO: dùng while với điều kiện chỉ số còn trong phạm vi list
-    while ___ < ___:
+    while i < len(nums):
         # TODO: lấy phần tử hiện tại
-        val = ___[___]
+        val = nums[i]
         # TODO: nếu val < 0 thì dừng vòng while (break)
-        if ___:
-            ___
+        if val < 0:
+            break
         # TODO: cộng vào total và tăng i
-        total ___ ___
-        i ___ ___
+        total += val
+        i += 1
     return total
 
 
@@ -244,7 +244,7 @@ def while_sum_positive(nums):
 
 if __name__ == "__main__":
     # Gợi ý: bỏ comment từng dòng sau khi bạn đã hoàn thành hàm tương ứng.
-    print(while_sum_positive([1,2,3,-1,5]))
+    # print(while_sum_positive([1,2,3,-1,5]))
     # print(while_collect_until_zero([5,4,0,9]))
     # print(break_find_first_even([1,3,5,8,10]))
     # print(break_stop_after_target(["a","b","c","d"], "c"))
