@@ -11,3 +11,9 @@ dog = {
     'owner_city': 'new york',
 }
 
+
+# print(dog.get('owner'))
+# print(dog.pop('breed'))
+# print(dog)
+# print(len(dog))
+print(list(dog.values()))
