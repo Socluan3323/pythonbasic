@@ -30,117 +30,117 @@ def while_sum_positive(nums):
     return total
 
 
-# def while_collect_until_zero(nums):
-#     """
-#     Bài 2 (while): Thu thập các phần tử cho đến khi gặp 0 thì dừng, trả về list kết quả.
-#     Ví dụ:
-#         while_collect_until_zero([5, 4, 0, 9]) -> [5, 4]
-#         while_collect_until_zero([0, 1, 2]) -> []
-#     """
-#     res = []
-#     idx = 0
-#     # TODO: vòng while duyệt qua list
-#     while ___:
-#         current = ___[___]
-#         # TODO: nếu current == 0 thì dừng vòng while
-#         if ___:
-#             ___
-#         # TODO: thêm current vào res và tăng idx
-#         ___(___)
-#         idx ___ ___
-#     return res
+def while_collect_until_zero(nums):
+    """
+    Bài 2 (while): Thu thập các phần tử cho đến khi gặp 0 thì dừng, trả về list kết quả.
+    Ví dụ:
+        while_collect_until_zero([5, 4, 0, 9]) -> [5, 4]
+        while_collect_until_zero([0, 1, 2]) -> []
+    """
+    res = []
+    idx = 0
+    # TODO: vòng while duyệt qua list
+    while idx < len(nums):
+        current = nums[idx]
+        # TODO: nếu current == 0 thì dừng vòng while
+        if current ==0:
+            break
+        # TODO: thêm current vào res và tăng idx
+        res = res + [current]
+        idx +=1
+    return res
 
 
 # =========================
 # 2) BREAK 
 # =========================
 
-# def break_find_first_even(nums):
-#     """
-#     Bài 1 (break): Tìm số chẵn đầu tiên trong list. Nếu không có trả về None.
-#     Ví dụ:
-#         break_find_first_even([1, 3, 5, 8, 10]) -> 8
-#         break_find_first_even([1, 3, 5]) -> None
-#     """
-#     found = None
-#     for n in ___:
-#         if ___ % 2 == 0:
-#             found = ___
-#             ___   # dùng break để thoát vòng for
-#     return found
+def break_find_first_even(nums):
+    """
+    Bài 1 (break): Tìm số chẵn đầu tiên trong list. Nếu không có trả về None.
+    Ví dụ:
+        break_find_first_even([1, 3, 5, 8, 10]) -> 8
+        break_find_first_even([1, 3, 5]) -> None
+    """
+    found = None
+    for n in nums:
+        if n % 2 == 0:
+            found = n
+            break   # dùng break để thoát vòng for
+    return found
 
 
-# def break_stop_after_target(names, target):
-#     """
-#     Bài 2 (break): Duyệt qua names, gom tên vào result cho đến khi gặp target thì dừng (không thêm target).
-#     Ví dụ:
-#         break_stop_after_target(["a", "b", "c", "d"], "c") -> ["a", "b"]
-#         break_stop_after_target(["a", "b"], "z") -> ["a", "b"]
-#     """
-#     result = []
-#     for name in ___:
-#         if name == ___:
-#             ___
-#         ___(___)
-#     return result
+def break_stop_after_target(names, target):
+    """
+    Bài 2 (break): Duyệt qua names, gom tên vào result cho đến khi gặp target thì dừng (không thêm target).
+    Ví dụ:
+        break_stop_after_target(["a", "b", "c", "d"], "c") -> ["a", "b"]
+        break_stop_after_target(["a", "b"], "z") -> ["a", "b"]
+    """
+    result = []
+    for name in names:
+        if name == target:
+            break
+        result.append(name)
+    return result
 
 
 # =========================
-# 3) CONTINUE 
+# # 3) CONTINUE 
 # =========================
 
-# def continue_filter_negatives(nums):
-#     """
-#     Bài 1 (continue): Tạo list mới chỉ chứa số không âm (>=0). Bỏ qua số âm bằng continue.
-#     Ví dụ:
-#         continue_filter_negatives([1, -2, 3, -4, 0]) -> [1, 3, 0]
-#     """
-#     res = []
-#     for x in ___:
-#         if x < 0:
-#             ___   # bỏ qua phần còn lại của vòng lặp
-#         ___(___)
-#     return res
+def continue_filter_negatives(nums):
+    """
+    Bài 1 (continue): Tạo list mới chỉ chứa số không âm (>=0). Bỏ qua số âm bằng continue.
+    Ví dụ:
+        continue_filter_negatives([1, -2, 3, -4, 0]) -> [1, 3, 0]
+    """
+    res = []
+    for x in nums:
+        if x < 0:
+            continue   # bỏ qua phần còn lại của vòng lặp
+        res.append(x)
+    return res
 
 
-# def continue_skip_short_words(words, min_len):
-#     """
-#     Bài 2 (continue): Trả về list gồm các từ có độ dài >= min_len. Bỏ qua từ ngắn bằng continue.
-#     Ví dụ:
-#         continue_skip_short_words(["hi","code","ai","python"], 3) -> ["code","python"]
-#     """
-#     out = []
-#     for w in ___:
-#         if ___(w) < ___:
-#             ___
-#         ___(___)
-#     return out
+def continue_skip_short_words(words, min_len):
+    """
+    Bài 2 (continue): Trả về list gồm các từ có độ dài >= min_len. Bỏ qua từ ngắn bằng continue.
+    Ví dụ:
+        continue_skip_short_words(["hi","code","ai","python"], 3) -> ["code","python"]
+    """
+    out = []
+    for w in words:
+        if len(w) < min_len:
+            continue
+        out.append(w)
+    return out
 
 
 # =========================
 # 4) MATCH 
 # =========================
 
-# def match_classify_token(token):
-#     """
-#     Bài 1 (match): Phân loại token theo kiểu dữ liệu.
-#     - Nếu token là int dương: trả về "POS_INT"
-#     - Nếu token là int không dương (<=0): trả về "NON_POS_INT"
-#     - Nếu token là str rỗng: trả về "EMPTY_STR"
-#     - Nếu token là str khác rỗng: trả về "STR"
-#     - Ngược lại: trả về "OTHER"
-#     """
-#     match ___:
-#         case int() as n if ___:
-#             return "POS_INT"
-#         case int() as n:
-#             return ___
-#         case str() as s if ___ == "":
-#             return ___
-#         case str():
-#             return ___
-#         case _:
-#             return "OTHER"
+def match_classify_token(token):
+    """
+    Bài 1 (match): Phân loại token theo kiểu dữ liệu.
+    - Nếu token là int dương: trả về "POS_INT"
+    - Nếu token là int không dương (<=0): trả về "NON_POS_INT"
+    - Nếu token là str rỗng: trả về "EMPTY_STR"
+    - Nếu token là str khác rỗng: trả về "STR"
+    - Ngược lại: trả về "OTHER"
+    """
+    match token:
+        case int() as n if n > 0:
+            return "POS_INT"
+        case int() as n if n <= 0:
+            return "NON_POS_INT"
+        case str() as n if n == "":
+            return "EMPTY_STR"
+        case str(n):
+            return "STR"
+        case _:
+            return "OTHER"
 
 
 # def match_command_list(cmd, data):
@@ -175,88 +175,89 @@ def while_sum_positive(nums):
 # 5) DEL 
 # =========================
 
-# def del_remove_range(data, start, end):
-#     """
-#     Bài 1 (del): Xóa các phần tử trong đoạn [start, end) bằng del.
-#     - Nếu start/end không hợp lệ, không làm gì.
-#     Ví dụ:
-#         del_remove_range([0,1,2,3,4], 1, 4) -> [0,4]
-#     """
-#     # TODO: kiểm tra hợp lệ, rồi del data[start:end]
-#     if 0 <= ___ <= ___ and 0 <= ___ <= ___ and ___ < ___:
-#         del ___[___:___]
-#     return data
+def del_remove_range(data, start, end):
+    """
+    Bài 1 (del): Xóa các phần tử trong đoạn [start, end) bằng del.
+    - Nếu start/end không hợp lệ, không làm gì.
+    Ví dụ:
+        del_remove_range([0,1,2,3,4], 1, 4) -> [0,4]
+    """
+    # TODO: kiểm tra hợp lệ, rồi del data[start:end]
+    if 0 <= start <= end and end <= len(data):
+        del data[start:end]
+    return data
 
 
-# def del_remove_every_second(data):
-#     """
-#     Bài 2 (del): Xóa các phần tử ở vị trí chẵn (index 0,2,4,...) bằng del slicing.
-#     Ví dụ:
-#         del_remove_every_second([10,11,12,13,14]) -> [11,13]
-#     """
-#     # Gợi ý: dùng del data[___:___:___]
-#     del ___[___:___:___]
-#     return data
+def del_remove_every_second(data):
+    """
+    Bài 2 (del): Xóa các phần tử ở vị trí chẵn (index 0,2,4,...) bằng del slicing.
+    Ví dụ:
+        del_remove_every_second([10,11,12,13,14]) -> [11,13]
+    """
+    # Gợi ý: dùng del data[___:___:___]
+    del data[::2]
+    return data
 
 
 # =========================
 # 6) INDEX() 
 # =========================
 
-# def index_find_first_occurrence(data, target):
-#     """
-#     Bài 1 (index): Trả về index xuất hiện đầu tiên của target trong data, hoặc -1 nếu không có.
-#     Dùng list.index, nhưng tránh crash bằng try/except.
-#     Ví dụ:
-#         index_find_first_occurrence(["a","b","a"], "a") -> 0
-#         index_find_first_occurrence(["a","b"], "z") -> -1
-#     """
-#     try:
-#         pos = ___.___(___)
-#         return ___
-#     except ___:
-#         return ___
+def index_find_first_occurrence(data, target):
+    """
+    Bài 1 (index): Trả về index xuất hiện đầu tiên của target trong data, hoặc -1 nếu không có.
+    Dùng list.index, nhưng tránh crash bằng try/except.
+    Ví dụ:
+        index_find_first_occurrence(["a","b","a"], "a") -> 0
+        index_find_first_occurrence(["a","b"], "z") -> -1
+    """
+    try:
+        pos = data.index(target)
+        return pos
+    except:
+        return -1
 
 
-# def index_find_all_occurrences(data, target):
-#     """
-#     Bài 2 (index): Trả về list chứa mọi chỉ số i sao cho data[i] == target.
-#     Không dùng list comprehension; dùng while + index(start).
-#     Gợi ý:
-#         - dùng start = 0
-#         - trong while: gọi data.index(target, start) để lấy vị trí kế tiếp
-#         - nếu ValueError -> dừng
-#         - update start = vị trí vừa tìm + 1
-#     Ví dụ:
-#         index_find_all_occurrences(["x","a","x","b","x"], "x") -> [0,2,4]
-#     """
-#     positions = []
-#     start = 0
-#     while True:
-#         try:
-#             i = ___.___(___, ___)
-#             ___(___)
-#             start = ___ + ___
-#         except ___:
-#             break
-#     return positions
+
+def index_find_all_occurrences(data, target):
+    """
+    Bài 2 (index): Trả về list chứa mọi chỉ số i sao cho data[i] == target.
+    Không dùng list comprehension; dùng while + index(start).
+    Gợi ý:
+        - dùng start = 0
+        - trong while: gọi data.index(target, start) để lấy vị trí kế tiếp
+        - nếu ValueError -> dừng
+        - update start = vị trí vừa tìm + 1
+    Ví dụ:
+        index_find_all_occurrences(["x","a","x","b","x"], "x") -> [0,2,4]
+    """
+    positions = []
+    start = 0
+    while True:
+        try:
+            i = data.index(target, start)
+            positions.append(i)
+            start = i + 1
+        except ValueError:
+            break
+    return positions
 
 
 if __name__ == "__main__":
     # Gợi ý: bỏ comment từng dòng sau khi bạn đã hoàn thành hàm tương ứng.
     # print(while_sum_positive([1,2,3,-1,5]))
     # print(while_collect_until_zero([5,4,0,9]))
-    # print(break_find_first_even([1,3,5,8,10]))
-    # print(break_stop_after_target(["a","b","c","d"], "c"))
+    # print(break_find_first_even([1,3,5,7,9]))
+    # print(break_stop_after_target("hello", "o"))
     # print(continue_filter_negatives([1,-2,3,-4,0]))
-    # print(continue_skip_short_words(["hi","code","ai","python"], 3))
-    # print(match_classify_token(5), match_classify_token(0), match_classify_token(""), match_classify_token("x"), match_classify_token(2.5))
+    # print(continue_skip_short_words(["hi","code","ai","python"], 5))
+    # print(match_classify_token(-1), match_classify_token(2), match_classify_token("a"), match_classify_token(""), match_classify_token(15))
     # print(match_command_list(("head", 2), [1,2,3,4]))
     # print(match_command_list(("tail", 2), [1,2,3,4]))
     # print(match_command_list(("get", 1), ["a","b"]))
     # print(match_command_list(("count", "a"), ["a","b","a"]))
-    # print(del_remove_range([0,1,2,3,4], 1, 4))
-    # print(del_remove_every_second([10,11,12,13,14]))
-    # print(index_find_first_occurrence(["a","b","a"], "a"))
-    # print(index_find_all_occurrences(["x","a","x","b","x"], "x"))
+    # print(del_remove_range([0,1,2,3,4], 2, 4))
+    # print(del_remove_every_second([10,12,14,15,16]))
+    # print(index_find_first_occurrence(["g","b","h"], "e"))
+    print(index_find_all_occurrences(["x","a","x","b","x"], "x"))
     pass
