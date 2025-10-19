@@ -43,20 +43,35 @@ class Cart:
     def __init__(self) -> None:
         # write your code below
         self._items: Dict[str, Product] = {}
+        self._qty: Dict[str, int] = {}
         # write your code above
 
     def add(self, product: Product, qty: int) -> None:
         # write your code below
         self._items[product._name] = product
+        if qty > 0:
+            self._qty[product._name] = self._qty.get[product._name,0] + qty
+        return
         # write your code above
 
     def remove(self, name: str, qty: int) -> None:
         # write your code below
-        self._items[name] -= qty
+        if name in self._qty:
+            self._qty[name] -= qty          
+            if self._qty[name] <= 0:
+                del self._qty[name]
+                if name in self._items:
+                    del self._items[name]
         # write your code above
 
     def total(self, catalog: Catalog) -> int:
         # write your code below
+        temp_dict = {}
+        for name, qty in self._items.items():
+            product = catalog.get(name)     # tra Product theo tên trong catalog
+            if product:                     # nếu tồn tại trong catalog
+                temp_dict[product] = qty  
+
         return sum(product.price * qty for product, qty in self._items.items())
         # write your code above
 

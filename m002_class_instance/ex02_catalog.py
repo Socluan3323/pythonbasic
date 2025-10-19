@@ -35,6 +35,9 @@ class Product:
     
     def to_dict(self) -> Dict[str, int | str]:        
         return {"name": self._name, "price": int(self._price)}
+    
+    def __repr__(self):
+        return f"Product(name={self._name}, price={self._price})"
 
 class Catalog:
     def __init__(self) -> None:
@@ -127,6 +130,55 @@ class Catalog:
                 max_price = current_product._price
                 product_tmpmax = current_product
         return product_tmpmax
+    
+    def sortedby(self, type: str, sorted_type: str) -> List[Product]:
+        list_products = list(self.__items.values())
+        reverse = False if sorted_type == "asd" else True 
+        if type == "price":
+            list_products = sorted(list_products,key= lambda x: x._price, reverse=reverse)
+        if type == "name":
+            list_products = sorted(list_products,key= lambda x: x._name, reverse=reverse)
+        return list_products
+
+    
+            
+    
+
+    def swap(list: list, i, j):
+        print(i,j)
+        a = list[i]
+        list[i] = list[j]
+        list[j] = a
+    # def clone_sorted(self,l: list[Product],key: callable, reverse: bool = False):
+    #     if not reverse:
+    #         for i in range(len(l)-1):
+    #             maxindex = -1
+    #             maxvalue = 'a'
+    #             if isinstance(key(l[0]),int):
+    #                 maxvalue = -9999
+    #             print(key(l[0]))
+    #             for j in range(len(l)-i):
+    #                 print( key(l[j]),maxvalue)
+                    
+    #                 if maxvalue < key(l[j]):
+    #                     maxindex = j
+    #                     maxvalue = key(l[j])
+    #             self.swap(l,maxindex,len(l)-1-i)
+    #     else:
+    #         for i in range(len(l)-1):
+    #             minindex = len(l)
+    #             minvalue = 'z'
+    #             if isinstance(key(l[0]),int):
+    #                 minvalue = 9999999999
+    #             print(key(l[0]))
+    #             for j in range(len(l)-i):
+    #                 print( key(l[j]),minvalue)
+                    
+    #                 if minvalue > key(l[j]):
+    #                     minindex = j
+    #                     minvalue = key(l[j])
+    #             self.swap(l,minindex,len(l)-1-i)
+            
                 
 
             
@@ -192,6 +244,10 @@ if __name__ == "__main__":
                 print("MEP is", catalog.get_expensive().to_dict())
             except:
                 print("No Product")
+
+        if command == "sorted":
+            print(catalog.sortedby(type= lines[1].strip(),sorted_type= lines[2].strip()))
+
 
         
     

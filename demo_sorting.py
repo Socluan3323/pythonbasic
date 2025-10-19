@@ -59,11 +59,7 @@ class Product:
     def __repr__(self):
         return f"{self._name}: {self._price}"
     
-def swap(list: list, i, j):
-    print(i,j)
-    a = list[i]
-    list[i] = list[j]
-    list[j] = a
+
 
 # def clone_sorted_selection_sorted(l: list[Product]):
 #     for i in range(len(l)-1):
@@ -93,32 +89,50 @@ def swap(list: list, i, j):
 
 
 
-
-
-def clone_sorted(l: list[Product],key: callable):
-    for i in range(len(l)-1):
-        maxindex = -1
-        maxvalue = 'a'
-        if isinstance(key(l[0]),int):
-            maxvalue = -9999
-        print(key(l[0]))
-        for j in range(len(l)-i):
-            print( key(l[j]),maxvalue)
-            
-            if maxvalue < key(l[j]):
-                maxindex = j
-                maxvalue = key(l[j])
-        swap(l,maxindex,len(l)-1-i)
+def swap(list: list, i, j):
+    print(i,j)
+    a = list[i]
+    list[i] = list[j]
+    list[j] = a
+def clone_sorted(l: list[Product],key: callable, reverse: bool = False):
+    if not reverse:
+        for i in range(len(l)-1):
+            maxindex = -1
+            maxvalue = 'a'
+            if isinstance(key(l[0]),int):
+                maxvalue = -9999
+            print(key(l[0]))
+            for j in range(len(l)-i):
+                print( key(l[j]),maxvalue)
+                
+                if maxvalue < key(l[j]):
+                    maxindex = j
+                    maxvalue = key(l[j])
+            swap(l,maxindex,len(l)-1-i)
+    else:
+        for i in range(len(l)-1):
+            minindex = len(l)
+            minvalue = 'z'
+            if isinstance(key(l[0]),int):
+                minvalue = 9999999999
+            print(key(l[0]))
+            for j in range(len(l)-i):
+                print( key(l[j]),minvalue)
+                
+                if minvalue > key(l[j]):
+                    minindex = j
+                    minvalue = key(l[j])
+            swap(l,minindex,len(l)-1-i)
         
 
 
 
 
 products = [
-    Product("apple", 3000),
-    Product("banana", 2000),
-    Product("cherry", 1000)
+    Product("apple", 5000),
+    Product("banana", 7000),
+    Product("cherry", 3000)
 ]
 
-clone_sorted(products,key=lambda x: x._name)
+clone_sorted(products,key=lambda x: x._price, reverse = True)
 print(products)
